@@ -1,10 +1,12 @@
-import com.sun.xml.internal.bind.annotation.OverrideAnnotationOf;
+package cars;
+
+import interfaces.Movable;
+import interfaces.Sellable;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Objects;
 
-public abstract class Car implements Movable {
+public abstract class Car implements Movable, Sellable {
     protected String name;
     protected String color;
     protected String typeOfEngine;
@@ -56,7 +58,7 @@ public abstract class Car implements Movable {
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        str.append("Car{").append("name='").append(name).append("'")
+        str.append("cars.Car{").append("name='").append(name).append("'")
                 .append(", number=").append(number)
                 .append(", color='").append(color).append("'")
                 .append(", releaseDate=").append(getReleaseDate())

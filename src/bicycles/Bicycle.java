@@ -1,5 +1,12 @@
-public class Bicycle implements Movable {
+package bicycles;
 
+import interfaces.Movable;
+import interfaces.Sellable;
+
+public class Bicycle implements Movable, Sellable {
+
+    private final String name;
+    private String model;
     private String typeOfBicycle;
     private String frameMaterial;
     private String color;
@@ -8,14 +15,11 @@ public class Bicycle implements Movable {
     private int numberOfGears;
     private boolean damping;
     private boolean basket;
+    private boolean wantToMove;
+    private int price;
 
-
-    public Bicycle() {
-
-    }
-
-    public Bicycle(String typeOfBicycle, String frameMaterial, String color, int wheelRadius, FrameSize frameSize,
-                   int numberOfGears, boolean damping, boolean basket) {
+    public Bicycle(String name, String model, String typeOfBicycle, String frameMaterial, String color, int wheelRadius,
+                   FrameSize frameSize, int numberOfGears, boolean damping, boolean basket, int price) {
         this.typeOfBicycle = typeOfBicycle;
         this.frameMaterial = frameMaterial;
         this.color = color;
@@ -24,10 +28,17 @@ public class Bicycle implements Movable {
         this.numberOfGears = numberOfGears;
         this.damping = damping;
         this.basket = basket;
+        this.price = price;
+        this.name = name;
     }
 
+    @Override
     public boolean move() {
-        return true;
+        return wantToMove = true;
+    }
+
+    public boolean brake() {
+        return wantToMove = false;
     }
 
     public boolean moveOnTheBorder(int heightOfBorder) {
@@ -43,6 +54,18 @@ public class Bicycle implements Movable {
 
     public boolean chooseBicycle(int height) {
         return !(height < frameSize.getMinHeight() || height > frameSize.getMaxHeight());
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public boolean chooseBicycle(FrameSize frameSize) {
@@ -68,7 +91,6 @@ public class Bicycle implements Movable {
     public String getColor() {
         return color;
     }
-
 
     public int getWheelRadius() {
         return wheelRadius;
@@ -106,6 +128,14 @@ public class Bicycle implements Movable {
         this.basket = basket;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this) {
@@ -128,7 +158,7 @@ public class Bicycle implements Movable {
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        str.append("Bicycle{").append("typeOfBicycle='").append(typeOfBicycle).append("'")
+        str.append("bicycles.Bicycle{").append("typeOfBicycle='").append(typeOfBicycle).append("'")
                 .append(", frameMaterial='").append(frameMaterial).append("'")
                 .append(", color='").append(color).append("'")
                 .append(", wheelRadius=").append(wheelRadius)

@@ -1,3 +1,5 @@
+package bicycles;
+
 public enum FrameSize {
     SIZE_13 (130, 145),
     SIZE_14 (135, 155),

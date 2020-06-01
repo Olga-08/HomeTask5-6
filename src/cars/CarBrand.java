@@ -1,3 +1,5 @@
+package cars;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -14,7 +16,7 @@ public enum CarBrand {
     VOLKSWAGEN("Volkswagen", "Germany", "DAF",
             new Calendar.Builder().setDate(1937, Calendar.MAY, 28).build()),
     ROLLS_ROYCE("Rolls-Royce", "Great Britain", "Charles Rolls and Henry Royce",
-            new Calendar.Builder().setDate(1904, Calendar.MAY,1).build());
+            new Calendar.Builder().setDate(1904, Calendar.MAY, 1).build());
 
     private String name;
     private String country;
